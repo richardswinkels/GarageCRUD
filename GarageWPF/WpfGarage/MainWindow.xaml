@@ -1,0 +1,118 @@
+﻿<Window x:Class="WpfGarage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfGarage"
+        mc:Ignorable="d"
+        Title="Autogarage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Background="DarkRed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" BorderBrush="Gray" BorderThickness="0,0,0,1">
+                <TextBlock FontSize="25" Foreground="GhostWhite" HorizontalAlignment="Center" VerticalAlignment="Center">Auto's</TextBlock>
+            </Border>
+            <Border Grid.Column="1" Grid.Row="0" BorderBrush="Gray" BorderThickness="1,0,0,1">
+                <TextBlock FontSize="25" Foreground="GhostWhite" HorizontalAlignment="Center" VerticalAlignment="Center">Klantgegevens</TextBlock>
+            </Border>
+        </Grid>
+        <DataGrid x:Name="dgCars" BorderThickness="0" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" SelectionChanged="DgCars_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Header="Merk" Binding="{Binding brand}"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding model}"/>
+                <DataGridTextColumn Header="Bouwjaar" Binding="{Binding construction_year}"/>
+                <DataGridTextColumn Header="Kenteken" Binding="{Binding registration}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="BtnEditCar_Click">Bewerken</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="BtnDeleteCar_Click">Verwijderen</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="1" Grid.Row="2" FontSize="12" Click="BtnAddCar_Click">Voeg nieuwe auto toe</Button>
+        <Border BorderBrush="Gray" BorderThickness="1,0,0,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="5" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="tbCustomerId" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="1">Klant ID:</TextBlock>
+                <TextBlock x:Name="tbFirstname" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="3">Voornaam:</TextBlock>
+                <TextBlock x:Name="tbLastname" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="3" Grid.Row="3">Achternaam:</TextBlock>
+                <TextBlock x:Name="tbAdres" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="7">Adres:</TextBlock>
+                <TextBlock x:Name="tbPostalcode" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="11">Postcode:</TextBlock>
+                <TextBlock x:Name="tbCity" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="3" Grid.Row="11">Woonplaats:</TextBlock>
+                <TextBlock x:Name="tbEmail" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="15">E-mailadres:</TextBlock>
+                <TextBlock x:Name="tbPhone" FontWeight="Bold" Visibility="Hidden" TextDecorations="Underline" Grid.Column="1" Grid.Row="19">Telefoonnummer:</TextBlock>
+
+                
+                <TextBlock x:Name="tbCustomerIdData" Grid.Column="3" Grid.Row="1"/>
+                <TextBlock x:Name="tbFirstnameData" Grid.Column="1" Grid.Row="5"/>
+                <TextBlock x:Name="tbLastnameData" Grid.Column="3" Grid.Row="5"/>
+                <TextBlock x:Name="tbAdresData" Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"/>
+                <TextBlock x:Name="tbPostalcodeData" Grid.Column="1" Grid.Row="13"/>
+                <TextBlock x:Name="tbCityData" Grid.Column="3" Grid.Row="13" />
+                <TextBlock x:Name="tbEmailData" Grid.Column="1" Grid.Row="17" Grid.ColumnSpan="3"/>
+                <TextBlock x:Name="tbPhoneData" Grid.Column="1" Grid.Row="21" Grid.ColumnSpan="3"/>
+                
+                <Button Grid.Column="1" Grid.Row="23" Click="BtnEditCustomer_Click">Klant bewerken</Button>
+                <Button x:Name="btnDeleteCustomer" Grid.Column="3" Grid.Row="23" Click="BtnDeleteCustomer_Click" >Klant verwijderen</Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

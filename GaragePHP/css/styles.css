@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    padding: 10px 0px;
+    color: white;
+    background-color: darkred;
+    text-align: center;
+}
+
+#customerData header {
+    border-bottom: solid 1px grey;
+}
+
+#overview {
+    width: 100%;
+    min-height: 100vh;
+    grid-template-columns: 1fr 300px;
+    display: grid;
+}
+
+#cars {
+    grid-column: 1 / 2;
+}
+
+#customerData {
+    grid-column: 2 / 3;
+    border-left: 1px solid grey;
+}
+
+table {
+    width: 100%;
+}
+
+table, tr, th, td {
+    border: 1px solid grey;
+    border-right: 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 5px 10px;
+}
+
+.inlineButtons form {
+    display: inline;
+}
+
+
+.customerdata-flex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 50px;
+}
+
+.form-flex label, .customerdata-flex label {
+    text-decoration: underline;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-flex select {
+    width: 175px;
+}
+
+.form-flex-row, .customerdata-flex-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-inner-flex-row, .customerdata-inner-flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-flex-split, .customerdata-flex-split {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-flex-split > div, .customerdata-flex-split > * {
+    display: flex;
+    flex-direction: column;
+    width: 49%;
+}
